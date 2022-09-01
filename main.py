@@ -136,7 +136,7 @@ class App(customtkinter.CTk):
 
         if visibleb:
             self.add_menu_display2 = customtkinter.CTkTextbox(master=self.frame_right)
-            self.add_menu_display2.configure(width=700)
+            self.add_menu_display2.configure(width=550)
             self.add_menu_display2.grid(column=0, row=0, pady=15, padx=15, sticky="nwe")
             try:
                 visiblea = False
@@ -147,6 +147,7 @@ class App(customtkinter.CTk):
                 pass
         else:
             self.add_menu_display2.destroy()
+        self.label_info_1.destroy()
 
     def button_event3(self):
         global visiblea
@@ -157,8 +158,8 @@ class App(customtkinter.CTk):
 
         if visiblec:
             self.add_menu_display3 = customtkinter.CTkTextbox(master=self.frame_right)
-            self.add_menu_display3.configure(width=900)
-            self.add_menu_display3.grid(column=0, row=0, pady=0, padx=0, sticky="nwe")
+            self.add_menu_display3.configure(width=550)
+            self.add_menu_display3.grid(column=0, row=0, pady=15, padx=15, sticky="nwe")
             try:
                 visiblea = False
                 visibleb = False

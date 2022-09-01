@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Changed directory name from 'QRetroTechCollector' to 'RetroTechCollector'&#10;difference: removed 'q' in name">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/QRetroTechCollector.iml" beforeDir="false" />
+    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Fixed tabs yea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -84,6 +82,14 @@
       <option name="presentableId" value="Default" />
       <updated>1661424653702</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed tabs yea">
+      <created>1662041143302</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662041143302</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,5 +102,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed tabs yea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed tabs yea" />
   </component>
 </project>
