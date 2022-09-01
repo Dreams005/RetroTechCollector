@@ -5,11 +5,16 @@ import customtkinter
 customtkinter.set_appearance_mode("Dark")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
+visiblea = False
+visibleb = False
+visiblec = False
+
 
 class App(customtkinter.CTk):
 
     WIDTH = 780
     HEIGHT = 520
+
 
     def __init__(self):
         super().__init__()
@@ -18,8 +23,8 @@ class App(customtkinter.CTk):
         self.title("Retro Technology Collector")
         self.iconbitmap("Files/radio-cassette.ico")
         self.geometry(f"{App.WIDTH}x{App.HEIGHT}")
-        self.minsize(780, 520)
-        self.maxsize(975, 650)
+        self.minsize(App.WIDTH, App.HEIGHT)
+        self.maxsize(App.WIDTH, App.HEIGHT)
         self.protocol("WM_DELETE_WINDOW", self.on_closing)  # call .on_closing() when app gets closed
 
         # ============ create two frames ============
@@ -100,27 +105,71 @@ class App(customtkinter.CTk):
         # set default values
 
     def button_event1(self):
-        print("Button 1 clicked")
+        global visiblea
+        global visibleb
+        global visiblec
+
+        visiblea = not visiblea
+
+        if visiblea:
+            self.add_menu_display1 = customtkinter.CTkTextbox(master=self.frame_right)
+            self.add_menu_display1.configure(width=550)
+            self.add_menu_display1.grid(column=0, row=0, pady=15, padx=15, sticky="nwe")
+            try:
+                visibleb = False
+                visiblec = False
+                self.add_menu_display2.destroy()
+                self.add_menu_display3.destroy()
+            except AttributeError:
+                pass
+        else:
+            self.add_menu_display1.destroy()
+
         self.label_info_1.destroy()
-        self.add_menu_display = customtkinter.CTkTextbox(master=self.frame_right)
-        self.add_menu_display.configure(width=550)
-        self.add_menu_display.grid(column=0, row=0, pady=15, padx=15, sticky="nwe")
 
     def button_event2(self):
-        print("Button 2 clicked")
-        self.label_info_1.destroy()
-        try:
-            self.add_menu_display.destroy()
-        except AttributeError:
-            print("add_menu_display doesn't exist yet")
+        global visiblea
+        global visibleb
+        global visiblec
+
+        visibleb = not visibleb
+
+        if visibleb:
+            self.add_menu_display2 = customtkinter.CTkTextbox(master=self.frame_right)
+            self.add_menu_display2.configure(width=700)
+            self.add_menu_display2.grid(column=0, row=0, pady=15, padx=15, sticky="nwe")
+            try:
+                visiblea = False
+                visiblec = False
+                self.add_menu_display1.destroy()
+                self.add_menu_display3.destroy()
+            except AttributeError:
+                pass
+        else:
+            self.add_menu_display2.destroy()
 
     def button_event3(self):
-        print("Button 3 clicked")
+        global visiblea
+        global visibleb
+        global visiblec
+
+        visiblec = not visiblec
+
+        if visiblec:
+            self.add_menu_display3 = customtkinter.CTkTextbox(master=self.frame_right)
+            self.add_menu_display3.configure(width=900)
+            self.add_menu_display3.grid(column=0, row=0, pady=0, padx=0, sticky="nwe")
+            try:
+                visiblea = False
+                visibleb = False
+                self.add_menu_display1.destroy()
+                self.add_menu_display2.destroy()
+            except AttributeError:
+                pass
+        else:
+            self.add_menu_display3.destroy()
+
         self.label_info_1.destroy()
-        try:
-            self.add_menu_display.destroy()
-        except AttributeError:
-            print("add_menu_display doesn't exist yet")
 
     def on_closing(self, event=0):
         self.destroy()
