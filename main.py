@@ -17,7 +17,7 @@ class App(customtkinter.CTk):
 
         self.on_closing = None
         self.title("Retro Technology Collector")
-        self.iconbitmap("Files/Images/radio-cassette.ico")
+        self.iconbitmap("Files/Images/camera.ico")
         self.geometry(f"{App.WIDTH}x{App.HEIGHT}")
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self.on_closing)  # call .on_closing() when app gets closed
@@ -70,11 +70,19 @@ class App(customtkinter.CTk):
 
         self.button_1 = customtkinter.CTkButton(master=self.frame_left,
                                                 text="Add Item",
+                                                corner_radius=15,
+                                                border_width=1.5,
+                                                border_color="#3484F0",  # alternative green: #33f05f
+                                                fg_color="#343638",
                                                 command=self.button_event1)
         self.button_1.grid(row=2, column=0, pady=15, padx=20)
 
         self.button_2 = customtkinter.CTkButton(master=self.frame_left,
                                                 text="Delete Item",
+                                                corner_radius=15,
+                                                border_width=1.5,
+                                                border_color="#3484F0",  # alternative red: #f03933
+                                                fg_color="#343638",
                                                 command=self.button_event2)
         self.button_2.grid(row=3, column=0, pady=15, padx=20)
 
@@ -82,6 +90,10 @@ class App(customtkinter.CTk):
             print("Type selected:", choice)
 
         self.optionmenu_1 = customtkinter.CTkOptionMenu(master=self.frame_left, values=["Type 1", "Type 2"],
+                                                        corner_radius=15,
+                                                        button_color="#565b5e",
+                                                        fg_color="#343638",
+                                                        button_hover_color="#3484F0",
                                                         command=optionmenu_callback1)
         self.optionmenu_1.grid(row=4, column=0, pady=15, padx=20)
         self.optionmenu_1.set("Sort by type")
@@ -92,7 +104,7 @@ class App(customtkinter.CTk):
         self.label_creatorname = customtkinter.CTkLabel(master=self.frame_left, text="Alexander Ellul Hunt",
                                                         text_font=("Roboto Medium", -16),
                                                         text_color="#c1c1c1")
-        self.label_creatorname.grid(row=11, column=0, pady=10, padx=20, sticky="w")
+        self.label_creatorname.grid(row=11, column=0, pady=(0, 10), padx=20, sticky="w")
 
         # ============ frame_right ============
 
@@ -120,7 +132,7 @@ class App(customtkinter.CTk):
         main_add_frame.grid(row=0, column=0, sticky="nswe", padx=15, pady=15)
 
         entry_label1 = customtkinter.CTkLabel(master=main_add_frame, text="Item Name", text_font=("Roboto Medium", -16))
-        entry_label1.grid(row=0, column=0, sticky="nswe", padx=85, pady=(15, 5))
+        entry_label1.grid(row=0, column=0, sticky="nswe", padx=70, pady=(40, 5))
 
         entry1 = customtkinter.CTkEntry(master=main_add_frame,
                                         placeholder_text="",
@@ -128,10 +140,10 @@ class App(customtkinter.CTk):
                                         height=45,
                                         border_width=2,
                                         corner_radius=10)
-        entry1.grid(row=1, column=0, sticky="nswe", padx=85, pady=0)
+        entry1.grid(row=1, column=0, sticky="nswe", padx=70, pady=0)
 
         entry_label2 = customtkinter.CTkLabel(master=main_add_frame, text="Item Type", text_font=("Roboto Medium", -16))
-        entry_label2.grid(row=2, column=0, sticky="nswe", padx=85, pady=(15, 5))
+        entry_label2.grid(row=2, column=0, sticky="nswe", padx=70, pady=(15, 5))
 
         def type_add_optionmenu_callback(choice):
             print("Type selected:", choice)
@@ -141,12 +153,13 @@ class App(customtkinter.CTk):
                                                        command=type_add_optionmenu_callback,
                                                        button_color="#565b5e",
                                                        fg_color="#343638",
+                                                       button_hover_color="#3484F0",
                                                        corner_radius=10)
-        type_option_menu.grid(row=3, column=0, sticky="ns", padx=85, pady=(0, 5))
+        type_option_menu.grid(row=3, column=0, sticky="ns", padx=70, pady=(0, 5))
 
         entry_label3 = customtkinter.CTkLabel(master=main_add_frame, text="Date of manufacture",
                                               text_font=("Roboto Medium", -16))
-        entry_label3.grid(row=4, column=0, sticky="nswe", padx=85, pady=(15, 5))
+        entry_label3.grid(row=4, column=0, sticky="nswe", padx=70, pady=(15, 5))
 
         entry3 = customtkinter.CTkEntry(master=main_add_frame,
                                         placeholder_text="",
@@ -154,7 +167,17 @@ class App(customtkinter.CTk):
                                         height=45,
                                         border_width=2,
                                         corner_radius=10)
-        entry3.grid(row=5, column=0, sticky="nwe", padx=85, pady=0)
+        entry3.grid(row=5, column=0, sticky="nwe", padx=70, pady=0)
+
+        button1 = customtkinter.CTkButton(master=main_add_frame,
+                                          text="Add Item",
+                                          width=200,
+                                          height=50,
+                                          border_width=2,
+                                          border_color="#3484F0",
+                                          fg_color="#343638",
+                                          corner_radius=20)
+        button1.grid(row=7, column=0, sticky="nwe", padx=70, pady=0)
 
     def button_event2(self):
         del_item_menu = customtkinter.CTkToplevel(self)
