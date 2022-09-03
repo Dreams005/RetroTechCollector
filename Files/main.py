@@ -59,21 +59,6 @@ class App(customtkinter.CTk):
         self.frame_right = customtkinter.CTkFrame(master=self)
         self.frame_right.grid(row=0, column=1, sticky="nswe", padx=15, pady=15)
 
-        # Data stuff
-
-        # conn = sqlite3.connect('item_data.db')
-        # c = conn.cursor()
-        #
-        # c.execute("""CREATE TABLE if not exists items (
-        #     id integer,
-        #     item text,
-        #     date_added text,
-        #     date_of_manufacture text,)
-        #     """)
-
-        # conn.commit()
-        #
-        # conn.close()  # TODO CONTINUE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         # ============ frame_left ============
 
         # configure grid layout (1x11)
@@ -113,6 +98,7 @@ class App(customtkinter.CTk):
                                                                                   record[1],
                                                                                   record[2],
                                                                                   record[3]))
+
             App.COUNT += 1
 
         self.table.grid(row=0, column=0, sticky='nsew', padx=10, pady=10)
@@ -242,6 +228,9 @@ class App(customtkinter.CTk):
                                                                                                     "%d/%m/%Y"
                                                                                                             ),
                                                                                                 item_dom))
+                with open('Files/Data/data.txt', 'w') as f:
+                    for line in self.data:
+                        f.write(f"{line}\n")
                 App.COUNT += 1
 
                 add_item_menu.destroy()
@@ -292,13 +281,15 @@ class App(customtkinter.CTk):
 
         def check_input():
             try:
-                del_id = entry1.get()
                 if len(entry1.get()) == 0:
                     tkinter.messagebox.showerror("No input error",
                                                  "Please input a valid ID before you press delete item.")
                 elif len(entry1.get()) >= 5:
                     tkinter.messagebox.showerror("Number too big error",
                                                  "There is no way you have this many items.")
+                else:
+                    print("ok")
+                    # Prints: Found it! ['a', 'c']
 
             except ValueError:
                 tkinter.messagebox.showerror("Not a number error",
