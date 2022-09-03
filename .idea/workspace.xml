@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Pre-Release Prototype Version - (v0.1)&#10;&#10;-Completely rebuilt the UI System&#10;-Trying to add an item will now bring up a menu&#10;-Added a table that doesn't currently work but it looks cool">
+    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Pre-Release Prototype Version - (v0.2)&#10;&#10;-Improved overall look of the UI&#10;-The UI menu has been tweaked to look cleaner and is complete&#10;-Color coded all the buttons &amp; drop-down-boxes&#10;-Changed the icons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Files/Images/radio-cassette.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Files/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +41,33 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector\Files\Images" />
       <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector\Files" />
+      <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector\Files\Images" />
       <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="QRetroTechCollector" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Files/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="QRetroTechCollector" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -60,7 +80,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\zombi\PycharmProjects\QRetroTechCollector\Files\main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="QRetroTechCollector" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Files/table.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -72,6 +113,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.table" />
       </list>
     </recent_temporary>
   </component>
@@ -105,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662066453743</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Pre-Release Prototype Version - (v0.2)&#10;&#10;-Improved overall look of the UI&#10;-The UI menu has been tweaked to look cleaner and is complete&#10;-Color coded all the buttons &amp; drop-down-boxes&#10;-Changed the icons">
+      <created>1662083323941</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662083323941</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +173,7 @@
     <MESSAGE value="Fixed tabs yea" />
     <MESSAGE value="Small fixes like button2 not removing text upon clicking, and general QOL updates" />
     <MESSAGE value="Pre-Release Prototype Version - (v0.1)&#10;&#10;-Completely rebuilt the UI System&#10;-Trying to add an item will now bring up a menu&#10;-Added a table that doesn't currently work but it looks cool" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pre-Release Prototype Version - (v0.1)&#10;&#10;-Completely rebuilt the UI System&#10;-Trying to add an item will now bring up a menu&#10;-Added a table that doesn't currently work but it looks cool" />
+    <MESSAGE value="Pre-Release Prototype Version - (v0.2)&#10;&#10;-Improved overall look of the UI&#10;-The UI menu has been tweaked to look cleaner and is complete&#10;-Color coded all the buttons &amp; drop-down-boxes&#10;-Changed the icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pre-Release Prototype Version - (v0.2)&#10;&#10;-Improved overall look of the UI&#10;-The UI menu has been tweaked to look cleaner and is complete&#10;-Color coded all the buttons &amp; drop-down-boxes&#10;-Changed the icons" />
   </component>
 </project>
