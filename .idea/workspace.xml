@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Pre-Release Prototype Version - (v0.3)&#10;&#10;-You can now add Items and stuff&#10;-Delete menu doesnt work yet&#10;-Neither does sorting&#10;-Improved a bunch of stuff">
+    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="blab bla">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Files/Data/data.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Files/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Files/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662173004520</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="blab bla">
+      <created>1662236699768</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662236699768</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +190,7 @@
     <MESSAGE value="Pre-Release Prototype Version - (v0.1)&#10;&#10;-Completely rebuilt the UI System&#10;-Trying to add an item will now bring up a menu&#10;-Added a table that doesn't currently work but it looks cool" />
     <MESSAGE value="Pre-Release Prototype Version - (v0.2)&#10;&#10;-Improved overall look of the UI&#10;-The UI menu has been tweaked to look cleaner and is complete&#10;-Color coded all the buttons &amp; drop-down-boxes&#10;-Changed the icons" />
     <MESSAGE value="Pre-Release Prototype Version - (v0.3)&#10;&#10;-You can now add Items and stuff&#10;-Delete menu doesnt work yet&#10;-Neither does sorting&#10;-Improved a bunch of stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pre-Release Prototype Version - (v0.3)&#10;&#10;-You can now add Items and stuff&#10;-Delete menu doesnt work yet&#10;-Neither does sorting&#10;-Improved a bunch of stuff" />
+    <MESSAGE value="blab bla" />
+    <option name="LAST_COMMIT_MESSAGE" value="blab bla" />
   </component>
 </project>
