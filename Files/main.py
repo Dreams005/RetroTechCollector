@@ -1,8 +1,9 @@
 import datetime
+import time
 import tkinter
 import tkinter.messagebox
 import customtkinter
-from tkinter import ttk
+from tkinter import ttk, END
 import sqlite3
 
 customtkinter.set_appearance_mode("Dark")
@@ -49,11 +50,10 @@ class App(customtkinter.CTk):
         c = conn.cursor()
 
         c.execute("""CREATE TABLE if not exists items (
-                    rowid integer PRIMARY KEY AUTOINCREMENT,
                     item_name text,
                     item_type text,
                     date_added text,
-                    date_of_manufacture text)
+                    item_dom text)
                     """)
 
         conn.commit()
@@ -72,7 +72,7 @@ class App(customtkinter.CTk):
 
             for record in records:
                 self.table.insert(parent='', index='end', iid=record[0], text='',
-                                  values=(record[0], record[1], record[2], record[3]))
+                                  values=(record[0], record[1], record[3], record[4]))
 
             conn.commit()
             conn.close()
@@ -154,9 +154,108 @@ class App(customtkinter.CTk):
         self.button_3.grid(row=4, column=0, pady=15, padx=20)
 
         def optionmenu_callback1(choice):
-            print("Type selected:", choice)
+            if choice == "All":
+                conn = sqlite3.connect('item_data_rtc.db')
 
-        self.optionmenu_1 = customtkinter.CTkOptionMenu(master=self.frame_left, values=["Type 1", "Type 2"],
+                c = conn.cursor()
+
+                c.execute("SELECT rowid, * FROM items")
+                records = c.fetchall()
+
+                self.table.delete(*self.table.get_children())
+
+                for record in records:
+                    print(record)
+
+                for record in records:
+                    self.table.insert(parent='', index='end', iid=record[0], text='',
+                                      values=(record[0], record[1], record[3], record[4]))
+
+                conn.commit()
+                conn.close()
+
+            elif choice == "Computer":
+                conn = sqlite3.connect('item_data_rtc.db')
+
+                c = conn.cursor()
+
+                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
+                records = c.fetchall()
+
+                self.table.delete(*self.table.get_children())
+
+                for record in records:
+                    print(record)
+
+                for record in records:
+                    self.table.insert(parent='', index='end', iid=record[0], text='',
+                                      values=(record[0], record[1], record[3], record[4]))
+
+                conn.commit()
+                conn.close()
+
+            elif choice == "Video player":
+                conn = sqlite3.connect('item_data_rtc.db')
+
+                c = conn.cursor()
+
+                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
+                records = c.fetchall()
+
+                self.table.delete(*self.table.get_children())
+
+                for record in records:
+                    print(record)
+
+                for record in records:
+                    self.table.insert(parent='', index='end', iid=record[0], text='',
+                                      values=(record[0], record[1], record[3], record[4]))
+
+                conn.commit()
+                conn.close()
+
+            elif choice == "Phone":
+                conn = sqlite3.connect('item_data_rtc.db')
+
+                c = conn.cursor()
+
+                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
+                records = c.fetchall()
+
+                self.table.delete(*self.table.get_children())
+
+                for record in records:
+                    print(record)
+
+                for record in records:
+                    self.table.insert(parent='', index='end', iid=record[0], text='',
+                                      values=(record[0], record[1], record[3], record[4]))
+
+                conn.commit()
+                conn.close()
+
+            elif choice == "Camera":
+                conn = sqlite3.connect('item_data_rtc.db')
+
+                c = conn.cursor()
+
+                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
+                records = c.fetchall()
+
+                self.table.delete(*self.table.get_children())
+
+                for record in records:
+                    print(record)
+
+                for record in records:
+                    self.table.insert(parent='', index='end', iid=record[0], text='',
+                                      values=(record[0], record[1], record[3], record[4]))
+
+                conn.commit()
+                conn.close()
+
+        self.optionmenu_1 = customtkinter.CTkOptionMenu(master=self.frame_left, values=[
+            "All", "Computer", "Video player", "Phone", "Camera"],
                                                         corner_radius=15,
                                                         button_color="#565b5e",
                                                         fg_color="#343638",
@@ -181,12 +280,11 @@ class App(customtkinter.CTk):
         self.frame_right.columnconfigure((0, 1), weight=1)
         self.frame_right.columnconfigure(2, weight=0)
 
-        def select_record(selected):
-            selected = self.table.focus()
-            values = self.table.item(selected, 'values')
-            print(values)
+        def temp_func(selection):
+            self.table.selection_remove(self.table.focus())
+            print("Deselected item")
 
-        self.table.bind("<ButtonRelease-1>", select_record)
+        self.table.bind("<Escape>", temp_func)
 
         query_database()
 
@@ -263,11 +361,12 @@ class App(customtkinter.CTk):
                 c.execute("SELECT rowid, * FROM items")
                 records = c.fetchall()
 
-                c.execute("INSERT INTO items VALUES (:item_name, :date_added, :date_of_manufacture)",
+                c.execute("INSERT INTO items VALUES (:item_name, :item_type, :date_added, :item_dom)",
                           {
                               'item_name': item_name,
+                              'item_type': item_type,
                               'date_added': datetime.datetime.now().strftime("%d/%m/%Y"),
-                              'date_of_manufacture': item_dom
+                              'item_dom': item_dom
                           })
 
                 conn.commit()
@@ -288,8 +387,7 @@ class App(customtkinter.CTk):
 
                 for record in records:
                     self.table.insert(parent='', index='end', iid=record[0], text='',
-                                      values=(record[0], record[1], record[2], record[3]))
-                    App.COUNT += 1
+                                      values=(record[0], record[1], record[3], record[4]))
 
                 conn.commit()
 
@@ -327,17 +425,12 @@ class App(customtkinter.CTk):
 
     def button_event3(self):
         edit_item_menu = customtkinter.CTkToplevel(self)
-        edit_item_menu.title("Add Item Menu")
-        edit_item_menu.iconbitmap('Files/Images/plus.ico')
+        edit_item_menu.title("Edit Item Menu")
+        edit_item_menu.iconbitmap('Files/Images/compose.ico')
         edit_item_menu.geometry("360x520")
         edit_item_menu.resizable(False, False)
         edit_item_menu.grid_columnconfigure(0, weight=1)
         edit_item_menu.grid_rowconfigure(0, weight=1)
-
-        def select_record(selected):
-            selected = self.table.focus()
-            values = self.table.item(selected)
-            print(values)
 
         main_edit_frame = customtkinter.CTkFrame(master=edit_item_menu, corner_radius=10, height=240, width=400)
         main_edit_frame.grid(row=0, column=0, sticky="nswe")
@@ -347,8 +440,10 @@ class App(customtkinter.CTk):
         main_edit_frame.grid_rowconfigure(11, minsize=10)
         main_edit_frame.grid(row=0, column=0, sticky="nswe", padx=15, pady=15)
 
+        edit_item_menu.visible = True
+
         entry_label1 = customtkinter.CTkLabel(master=main_edit_frame, text="Item Name", text_font=(
-                                                                                                "Roboto Medium", -16))
+            "Roboto Medium", -16))
         entry_label1.grid(row=0, column=0, sticky="nswe", padx=65, pady=(40, 5))
 
         entry1 = customtkinter.CTkEntry(master=main_edit_frame,
@@ -360,7 +455,7 @@ class App(customtkinter.CTk):
         entry1.grid(row=1, column=0, sticky="nswe", padx=65, pady=0)
 
         entry_label2 = customtkinter.CTkLabel(master=main_edit_frame, text="Item Type", text_font=(
-                                                                                                "Roboto Medium", -16))
+            "Roboto Medium", -16))
         entry_label2.grid(row=2, column=0, sticky="nswe", padx=65, pady=(15, 5))
 
         def type_add_optionmenu_callback(choice):
@@ -380,7 +475,7 @@ class App(customtkinter.CTk):
         entry_label3.grid(row=4, column=0, sticky="nswe", padx=65, pady=(15, 5))
 
         entry3 = customtkinter.CTkEntry(master=main_edit_frame,
-                                        placeholder_text=select_record,
+                                        placeholder_text='',
                                         width=160,
                                         height=45,
                                         border_width=2,
@@ -388,8 +483,10 @@ class App(customtkinter.CTk):
         entry3.grid(row=5, column=0, sticky="nwe", padx=65, pady=0)
 
         def check_input():
+            selected = self.table.focus()
+            values = self.table.item(selected, 'values')
+            rowid = selected[0]
 
-            now = datetime.datetime.now()
             item_name = entry1.get()
             item_type = type_option_menu.get()
             item_dom = entry3.get()
@@ -397,20 +494,56 @@ class App(customtkinter.CTk):
             if len(item_name) == 0 or len(item_dom) == 0:
                 tkinter.messagebox.showerror("No input error",
                                              "Please make sure you filled out "
-                                             "all the fields before you press Edit Item.")
+                                             "all the fields before you try to edit the item.")
             else:
                 conn = sqlite3.connect('item_data_rtc.db')
-                c = conn.cursor()
-                c.execute("SELECT rowid, * FROM items")
 
+                c = conn.cursor()
+
+                c.execute("SELECT rowid, * FROM items")
                 records = c.fetchall()
 
+                c.execute(f"""UPDATE items SET
+                    item_name = :item_name,
+                    item_type = :item_type,
+                    date_added = :date_added,
+                    item_dom = :item_dom
+                    
+                    WHERE rowid = {rowid}""",
+                          {
+                              'item_name': item_name,
+                              'item_type': item_type,
+                              'date_added': values[3],
+                              'item_dom': item_dom
+                          })
+
                 conn.commit()
+
                 conn.close()
 
-                main_edit_frame.destroy()
+                self.table.delete(*self.table.get_children())
+
+                conn = sqlite3.connect('item_data_rtc.db')
+
+                c = conn.cursor()
+
+                c.execute("SELECT rowid, * FROM items")
+                records = c.fetchall()
+
+                for record in records:
+                    print(record)
+
+                for record in records:
+                    self.table.insert(parent='', index='end', iid=record[0], text='',
+                                      values=(record[0], record[1], record[3], record[4]))
+
+                conn.commit()
+
+                conn.close()
+
+                edit_item_menu.destroy()
                 tkinter.messagebox.showinfo("Item edited Successfully",
-                                            "That item has been edited successfully.")
+                                            "Your item has been edited successfully.")
 
         button1 = customtkinter.CTkButton(master=main_edit_frame,
                                           text="Edit Item",
@@ -422,6 +555,16 @@ class App(customtkinter.CTk):
                                           corner_radius=20,
                                           command=check_input)
         button1.grid(row=7, column=0, sticky="nwe", padx=65, pady=0)
+
+        try:
+            selected = self.table.focus()
+            values = self.table.item(selected, 'values')
+            entry1.insert(0, values[1])
+            entry3.insert(0, values[3])
+        except IndexError:
+            edit_item_menu.destroy()
+            tkinter.messagebox.showerror("Item not selected error",
+                                         "You have to select an item before attempting to edit it.")
 
 
 if __name__ == "__main__":
