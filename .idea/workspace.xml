@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Pre-Release Prototype Version - (v0.4)&#10;-You are now able to delete an item by clicking on the item in the table and pressing the delete button&#10;-Sorting by item type &amp; creating a new item type will be added soon&#10;-Improved overall look of the program">
+    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Pre-Release Prototype Version - (v0.4.1)&#10;-Sorting by item type added&#10;-Creating a new item type will be added later&#10;-You can now deselect an item from the table by pressing escape">
+      <change afterPath="$PROJECT_DIR$/Files/Images/help.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Files/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Files/main.py" afterDir="false" />
     </list>
@@ -41,8 +42,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector\Files" />
       <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector\Files\Images" />
+      <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector\Files" />
       <recent name="C:\Users\zombi\PycharmProjects\QRetroTechCollector" />
     </key>
   </component>
@@ -176,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662332941954</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Pre-Release Prototype Version - (v0.4.1)&#10;-Sorting by item type added&#10;-Creating a new item type will be added later&#10;-You can now deselect an item from the table by pressing escape">
+      <created>1662351548853</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662351548853</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +206,7 @@
     <MESSAGE value="Pre-Release Prototype Version - (v0.3)&#10;&#10;-You can now add Items and stuff&#10;-Delete menu doesnt work yet&#10;-Neither does sorting&#10;-Improved a bunch of stuff" />
     <MESSAGE value="blab bla" />
     <MESSAGE value="Pre-Release Prototype Version - (v0.4)&#10;-You are now able to delete an item by clicking on the item in the table and pressing the delete button&#10;-Sorting by item type &amp; creating a new item type will be added soon&#10;-Improved overall look of the program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pre-Release Prototype Version - (v0.4)&#10;-You are now able to delete an item by clicking on the item in the table and pressing the delete button&#10;-Sorting by item type &amp; creating a new item type will be added soon&#10;-Improved overall look of the program" />
+    <MESSAGE value="Pre-Release Prototype Version - (v0.4.1)&#10;-Sorting by item type added&#10;-Creating a new item type will be added later&#10;-You can now deselect an item from the table by pressing escape" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pre-Release Prototype Version - (v0.4.1)&#10;-Sorting by item type added&#10;-Creating a new item type will be added later&#10;-You can now deselect an item from the table by pressing escape" />
   </component>
 </project>

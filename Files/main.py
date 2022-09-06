@@ -39,6 +39,7 @@ class App(customtkinter.CTk):
                   background=[('active', '#3484F0')])
 
         self.on_closing = None
+        self.var = customtkinter.StringVar(self)
         self.title("Retro Technology Collector")
         self.iconbitmap("Files/Images/camera.ico")
         self.geometry(f"{App.WIDTH}x{App.HEIGHT}")
@@ -105,6 +106,7 @@ class App(customtkinter.CTk):
         self.table = ttk.Treeview(master=self.add_menu_display211,
                                   columns=columns,
                                   height=17,
+                                  selectmode='browse',
                                   show='headings')
 
         self.table.column("#1", anchor="c", minwidth=50, width=50)
@@ -153,109 +155,57 @@ class App(customtkinter.CTk):
                                                 command=self.button_event3)
         self.button_3.grid(row=4, column=0, pady=15, padx=20)
 
+        self.optionmenu_1_values = []
+
         def optionmenu_callback1(choice):
-            if choice == "All":
-                conn = sqlite3.connect('item_data_rtc.db')
+            with open("Files/Data/option_menu_options.txt", 'r') as f:
+                types = f.readlines()
+                self.optionmenu_1_values = []
+                for i in types:
+                    self.optionmenu_1_values.append(i.rstrip())
+                print(choice)
+                if choice == "All":
+                    conn = sqlite3.connect('item_data_rtc.db')
 
-                c = conn.cursor()
+                    c = conn.cursor()
 
-                c.execute("SELECT rowid, * FROM items")
-                records = c.fetchall()
+                    c.execute("SELECT rowid, * FROM items")
+                    records = c.fetchall()
 
-                self.table.delete(*self.table.get_children())
+                    self.table.delete(*self.table.get_children())
 
-                for record in records:
-                    print(record)
+                    for record in records:
+                        self.table.insert(parent='', index='end', iid=record[0], text='',
+                                          values=(record[0], record[1], record[3], record[4]))
 
-                for record in records:
-                    self.table.insert(parent='', index='end', iid=record[0], text='',
-                                      values=(record[0], record[1], record[3], record[4]))
+                    conn.commit()
+                    conn.close()
 
-                conn.commit()
-                conn.close()
+                elif choice in types:
+                    conn = sqlite3.connect('item_data_rtc.db')
 
-            elif choice == "Computer":
-                conn = sqlite3.connect('item_data_rtc.db')
+                    c = conn.cursor()
 
-                c = conn.cursor()
+                    c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
+                    records = c.fetchall()
 
-                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
-                records = c.fetchall()
+                    self.table.delete(*self.table.get_children())
 
-                self.table.delete(*self.table.get_children())
+                    for record in records:
+                        self.table.insert(parent='', index='end', iid=record[0], text='',
+                                          values=(record[0], record[1], record[3], record[4]))
 
-                for record in records:
-                    print(record)
+                    conn.commit()
+                    conn.close()
 
-                for record in records:
-                    self.table.insert(parent='', index='end', iid=record[0], text='',
-                                      values=(record[0], record[1], record[3], record[4]))
+        with open("Files/Data/option_menu_options.txt", 'r') as f:
+            options = f.readlines()
+            for i in options:
+                self.optionmenu_1_values.append(i.rstrip())
+            f.close()
+            print(self.optionmenu_1_values)
 
-                conn.commit()
-                conn.close()
-
-            elif choice == "Video player":
-                conn = sqlite3.connect('item_data_rtc.db')
-
-                c = conn.cursor()
-
-                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
-                records = c.fetchall()
-
-                self.table.delete(*self.table.get_children())
-
-                for record in records:
-                    print(record)
-
-                for record in records:
-                    self.table.insert(parent='', index='end', iid=record[0], text='',
-                                      values=(record[0], record[1], record[3], record[4]))
-
-                conn.commit()
-                conn.close()
-
-            elif choice == "Phone":
-                conn = sqlite3.connect('item_data_rtc.db')
-
-                c = conn.cursor()
-
-                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
-                records = c.fetchall()
-
-                self.table.delete(*self.table.get_children())
-
-                for record in records:
-                    print(record)
-
-                for record in records:
-                    self.table.insert(parent='', index='end', iid=record[0], text='',
-                                      values=(record[0], record[1], record[3], record[4]))
-
-                conn.commit()
-                conn.close()
-
-            elif choice == "Camera":
-                conn = sqlite3.connect('item_data_rtc.db')
-
-                c = conn.cursor()
-
-                c.execute("SELECT rowid, * FROM items WHERE item_type = ?", (choice,))
-                records = c.fetchall()
-
-                self.table.delete(*self.table.get_children())
-
-                for record in records:
-                    print(record)
-
-                for record in records:
-                    self.table.insert(parent='', index='end', iid=record[0], text='',
-                                      values=(record[0], record[1], record[3], record[4]))
-
-                conn.commit()
-                conn.close()
-
-        self.optionmenu_1 = customtkinter.CTkOptionMenu(master=self.frame_left, values=[
-            "All", "Computer", "Video player", "Phone", "Camera"],
+        self.optionmenu_1 = customtkinter.CTkOptionMenu(master=self.frame_left, values=self.optionmenu_1_values,
                                                         corner_radius=15,
                                                         button_color="#565b5e",
                                                         fg_color="#343638",
@@ -280,11 +230,11 @@ class App(customtkinter.CTk):
         self.frame_right.columnconfigure((0, 1), weight=1)
         self.frame_right.columnconfigure(2, weight=0)
 
-        def temp_func(selection):
+        def selection_remove(selection):
             self.table.selection_remove(self.table.focus())
             print("Deselected item")
 
-        self.table.bind("<Escape>", temp_func)
+        self.table.bind("<Escape>", selection_remove)
 
         query_database()
 
@@ -322,14 +272,16 @@ class App(customtkinter.CTk):
         def type_add_optionmenu_callback(choice):
             print("Type selected:", choice)
 
-        type_option_menu = customtkinter.CTkOptionMenu(master=main_add_frame,
-                                                       values=['Computer', 'Video player', 'Phone', 'Camera'],
-                                                       command=type_add_optionmenu_callback,
-                                                       button_color="#565b5e",
-                                                       fg_color="#343638",
-                                                       button_hover_color="#3484F0",
-                                                       corner_radius=10)
+        type_option_menu = customtkinter.CTkComboBox(master=main_add_frame,
+                                                     values=self.optionmenu_1_values[1:],
+                                                     command=type_add_optionmenu_callback,
+                                                     button_color="#565b5e",
+                                                     fg_color="#343638",
+                                                     button_hover_color="#3484F0",
+                                                     corner_radius=10)
         type_option_menu.grid(row=3, column=0, sticky="ns", padx=65, pady=(0, 5))
+
+        type_option_menu.update()
 
         entry_label3 = customtkinter.CTkLabel(master=main_add_frame, text="Date of manufacture",
                                               text_font=("Roboto Medium", -16))
@@ -354,6 +306,20 @@ class App(customtkinter.CTk):
                                              "Please make sure you filled out "
                                              "all the fields before you press Add Item.")
             else:
+                with open("Files/Data/option_menu_options.txt", 'r+') as f:
+                    options = f.readlines()
+                    if item_type.upper() in options or item_type.lower() in options or item_type in options:
+                        print(f"{item_type} is already in options")
+                    else:
+                        f.write(f"\n{item_type}")
+                        f.close()
+                        with open("Files/Data/option_menu_options.txt", 'r') as file:
+                            options = file.readlines()
+                            self.optionmenu_1_values = ["All"]
+                            for i in options[1:]:
+                                self.optionmenu_1_values.append(i.rstrip())
+                            f.close()
+
                 conn = sqlite3.connect('item_data_rtc.db')
 
                 c = conn.cursor()
@@ -462,7 +428,7 @@ class App(customtkinter.CTk):
             print("Type selected:", choice)
 
         type_option_menu = customtkinter.CTkOptionMenu(master=main_edit_frame,
-                                                       values=['Computer', 'Video player', 'Phone', 'Camera'],
+                                                       values=self.optionmenu_1_values[1:],
                                                        command=type_add_optionmenu_callback,
                                                        button_color="#565b5e",
                                                        fg_color="#343638",
@@ -513,7 +479,7 @@ class App(customtkinter.CTk):
                           {
                               'item_name': item_name,
                               'item_type': item_type,
-                              'date_added': values[3],
+                              'date_added': values[2],
                               'item_dom': item_dom
                           })
 
