@@ -227,7 +227,6 @@ class App(customtkinter.CTk):
 
         # ============ frame_right ============
 
-        # configure grid layout (3x7)
         self.frame_right.rowconfigure((0, 1, 2, 3), weight=1)
         self.frame_right.rowconfigure(7, weight=10)
         self.frame_right.columnconfigure((0, 1), weight=1)
@@ -260,6 +259,8 @@ class App(customtkinter.CTk):
         main_add_frame.grid_rowconfigure(8, minsize=20)
         main_add_frame.grid_rowconfigure(11, minsize=10)
         main_add_frame.grid(row=0, column=0, sticky="nswe", padx=15, pady=15)
+
+        add_item_menu.grab_set()
 
         entry_label1 = customtkinter.CTkLabel(master=main_add_frame, text="Item Name", text_font=("Roboto Medium", -16))
         entry_label1.grid(row=0, column=0, sticky="nswe", padx=65, pady=(40, 5))
@@ -413,7 +414,7 @@ class App(customtkinter.CTk):
         main_edit_frame.grid_rowconfigure(11, minsize=10)
         main_edit_frame.grid(row=0, column=0, sticky="nswe", padx=15, pady=15)
 
-        edit_item_menu.visible = True
+        edit_item_menu.grab_set()
 
         entry_label1 = customtkinter.CTkLabel(master=main_edit_frame, text="Item Name", text_font=(
             "Roboto Medium", -16))

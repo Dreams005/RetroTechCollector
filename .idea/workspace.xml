@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Added necessary files">
+    <list default="true" id="a0690991-1c87-42cd-866b-dfa5a3dd8ca7" name="Changes" comment="Retro Tech Collector INITIAL RELEASE - (v1)&#10;-Any new item type that was added will now auto-update to the sort menu allowing you to sort by the newly added item type&#10;-!Will polish up and finally finish the program by next release!">
+      <change afterPath="$PROJECT_DIR$/Files/Images/help.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Files/Images/help.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Files/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Files/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/item_data_rtc.db" beforeDir="false" afterPath="$PROJECT_DIR$/item_data_rtc.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item_data_rtc.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662428224807</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Retro Tech Collector INITIAL RELEASE - (v1)&#10;-Any new item type that was added will now auto-update to the sort menu allowing you to sort by the newly added item type&#10;-!Will polish up and finally finish the program by next release!">
+      <created>1662471705201</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662471705201</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +232,7 @@
     <MESSAGE value="Pre-Release Prototype Version - (v0.4.1)&#10;-Sorting by item type added&#10;-Creating a new item type will be added later&#10;-You can now deselect an item from the table by pressing escape" />
     <MESSAGE value="Pre-Release Prototype Version - (v0.5)&#10;-Creating a new item type has been added&#10;-New item type will automatically be added to edit &amp; add item menus however the sort by item type menu will be fixed soon&#10;-Help menu will be added next patch" />
     <MESSAGE value="Added necessary files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added necessary files" />
+    <MESSAGE value="Retro Tech Collector INITIAL RELEASE - (v1)&#10;-Any new item type that was added will now auto-update to the sort menu allowing you to sort by the newly added item type&#10;-!Will polish up and finally finish the program by next release!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Retro Tech Collector INITIAL RELEASE - (v1)&#10;-Any new item type that was added will now auto-update to the sort menu allowing you to sort by the newly added item type&#10;-!Will polish up and finally finish the program by next release!" />
   </component>
 </project>
