@@ -1,5 +1,4 @@
 import datetime
-import time
 import tkinter
 import tkinter.messagebox
 import customtkinter
@@ -157,6 +156,13 @@ class App(customtkinter.CTk):
 
         self.optionmenu_1_values = []
 
+        with open("Files/Data/option_menu_options.txt", 'r') as f:
+            options = f.readlines()
+            for i in options:
+                self.optionmenu_1_values.append(i.rstrip())
+            f.close()
+            print(self.optionmenu_1_values)
+
         def optionmenu_callback1(choice):
             with open("Files/Data/option_menu_options.txt", 'r') as f:
                 types = f.readlines()
@@ -181,7 +187,7 @@ class App(customtkinter.CTk):
                     conn.commit()
                     conn.close()
 
-                elif choice in types:
+                elif choice in self.optionmenu_1_values:
                     conn = sqlite3.connect('item_data_rtc.db')
 
                     c = conn.cursor()
@@ -198,12 +204,9 @@ class App(customtkinter.CTk):
                     conn.commit()
                     conn.close()
 
-        with open("Files/Data/option_menu_options.txt", 'r') as f:
-            options = f.readlines()
-            for i in options:
-                self.optionmenu_1_values.append(i.rstrip())
-            f.close()
-            print(self.optionmenu_1_values)
+        self.om_variable = tkinter.StringVar(self)
+        self.om_variable.set(self.optionmenu_1_values[0])
+        self.om_variable.trace('w', self.option_select)
 
         self.optionmenu_1 = customtkinter.CTkOptionMenu(master=self.frame_left, values=self.optionmenu_1_values,
                                                         corner_radius=15,
@@ -237,6 +240,9 @@ class App(customtkinter.CTk):
         self.table.bind("<Escape>", selection_remove)
 
         query_database()
+
+    def option_select(self, *args):
+        return self.om_variable.get()
 
     def button_event1(self):
         add_item_menu = customtkinter.CTkToplevel(self)
@@ -319,6 +325,7 @@ class App(customtkinter.CTk):
                             for i in options[1:]:
                                 self.optionmenu_1_values.append(i.rstrip())
                             f.close()
+                            self.optionmenu_1.configure(values=self.optionmenu_1_values)
 
                 conn = sqlite3.connect('item_data_rtc.db')
 
