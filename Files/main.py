@@ -124,7 +124,7 @@ class App(customtkinter.CTk):
 
         self.label_1 = customtkinter.CTkLabel(master=self.frame_left,
                                               text="Menu",
-                                              text_font=("Roboto Medium", -16))
+                                              font=("Roboto Medium", -16))
         self.label_1.grid(row=1, column=0, pady=20, padx=10)
 
         self.button_1 = customtkinter.CTkButton(master=self.frame_left,
@@ -221,7 +221,7 @@ class App(customtkinter.CTk):
         self.label_creator.grid(row=10, column=0, pady=0, padx=20, sticky="w")
 
         self.label_creatorname = customtkinter.CTkLabel(master=self.frame_left, text="Alexander Ellul Hunt",
-                                                        text_font=("Roboto Medium", -16),
+                                                        font=("Roboto Medium", -16),
                                                         text_color="#c1c1c1")
         self.label_creatorname.grid(row=11, column=0, pady=(0, 10), padx=20, sticky="w")
 
@@ -262,7 +262,7 @@ class App(customtkinter.CTk):
 
         add_item_menu.grab_set()
 
-        entry_label1 = customtkinter.CTkLabel(master=main_add_frame, text="Item Name", text_font=("Roboto Medium", -16))
+        entry_label1 = customtkinter.CTkLabel(master=main_add_frame, text="Item Name", font=("Roboto Medium", -16))
         entry_label1.grid(row=0, column=0, sticky="nswe", padx=65, pady=(40, 5))
 
         entry1 = customtkinter.CTkEntry(master=main_add_frame,
@@ -273,7 +273,7 @@ class App(customtkinter.CTk):
                                         corner_radius=10)
         entry1.grid(row=1, column=0, sticky="nswe", padx=65, pady=0)
 
-        entry_label2 = customtkinter.CTkLabel(master=main_add_frame, text="Item Type", text_font=("Roboto Medium", -16))
+        entry_label2 = customtkinter.CTkLabel(master=main_add_frame, text="Item Type", font=("Roboto Medium", -16))
         entry_label2.grid(row=2, column=0, sticky="nswe", padx=65, pady=(15, 5))
 
         def type_add_optionmenu_callback(choice):
@@ -291,7 +291,7 @@ class App(customtkinter.CTk):
         type_option_menu.update()
 
         entry_label3 = customtkinter.CTkLabel(master=main_add_frame, text="Date of manufacture",
-                                              text_font=("Roboto Medium", -16))
+                                              font=("Roboto Medium", -16))
         entry_label3.grid(row=4, column=0, sticky="nswe", padx=65, pady=(15, 5))
 
         entry3 = customtkinter.CTkEntry(master=main_add_frame,
@@ -416,7 +416,7 @@ class App(customtkinter.CTk):
 
         edit_item_menu.grab_set()
 
-        entry_label1 = customtkinter.CTkLabel(master=main_edit_frame, text="Item Name", text_font=(
+        entry_label1 = customtkinter.CTkLabel(master=main_edit_frame, text="Item Name", font=(
             "Roboto Medium", -16))
         entry_label1.grid(row=0, column=0, sticky="nswe", padx=65, pady=(40, 5))
 
@@ -428,7 +428,7 @@ class App(customtkinter.CTk):
                                         corner_radius=10)
         entry1.grid(row=1, column=0, sticky="nswe", padx=65, pady=0)
 
-        entry_label2 = customtkinter.CTkLabel(master=main_edit_frame, text="Item Type", text_font=(
+        entry_label2 = customtkinter.CTkLabel(master=main_edit_frame, text="Item Type", font=(
             "Roboto Medium", -16))
         entry_label2.grid(row=2, column=0, sticky="nswe", padx=65, pady=(15, 5))
 
@@ -445,7 +445,7 @@ class App(customtkinter.CTk):
         type_option_menu.grid(row=3, column=0, sticky="ns", padx=65, pady=(0, 5))
 
         entry_label3 = customtkinter.CTkLabel(master=main_edit_frame, text="Date of manufacture",
-                                              text_font=("Roboto Medium", -16))
+                                              font=("Roboto Medium", -16))
         entry_label3.grid(row=4, column=0, sticky="nswe", padx=65, pady=(15, 5))
 
         entry3 = customtkinter.CTkEntry(master=main_edit_frame,
